@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Register - ITUM Events</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.form-container { max-width:480px; margin:3rem auto; background:#fff;padding:1.75rem;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.06); }
+		label { display:block; margin-top:0.6rem; color:#444; }
+		input[type="text"], input[type="email"], input[type="password"] { width:100%; padding:0.6rem; margin-top:0.4rem; border:1px solid #ddd; border-radius:4px; }
+		.form-actions { margin-top:1rem; display:flex; gap:0.5rem; justify-content:space-between; align-items:center; }
+		.error { color: #d63031; font-size: 0.9rem; margin-top: 0.25rem; }
+	</style>
+</head>
+<body>
+	<nav class="navbar">
+		<div class="container">
+			<div class="logo"><img src="images/logo.jpeg" alt="ITUM" style="height:34px"><span class="logo-text">ITUM</span></div>
+		</div>
+	</nav>
+
+	<main>
+		<div class="container form-container">
+			<h2>Create Account</h2>
+
+			<?php if(isset($_GET['error'])): ?>
+				<div style="background:#ffe6e6;color:#900;padding:0.75rem;border-radius:6px;margin-bottom:0.75rem;"><?php echo htmlspecialchars($_GET['error']); ?></div>
+			<?php endif; ?>
+
+			<?php if(isset($_GET['success'])): ?>
+				<div style="background:#e6ffe6;color:#090;padding:0.75rem;border-radius:6px;margin-bottom:0.75rem;"><?php echo htmlspecialchars($_GET['success']); ?></div>
+			<?php endif; ?>
+
+			<form action="register.php" method="post" onsubmit="return validateRegistration()">
+				<label for="name">Full Name</label>
+				<input id="name" name="name" type="text" required>
+				<div id="nameError" class="error"></div>
+
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email" required>
+				<div id="emailError" class="error"></div>
+
+				<label for="password">Password</label>
+				<input id="password" name="password" type="password" required>
+				<div id="passwordError" class="error"></div>
+
+				<label for="confirm_password">Confirm Password</label>
+				<input id="confirm_password" name="confirm_password" type="password" required>
+				<div id="confirmPasswordError" class="error"></div>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">Register</button>
+					<a href="auth.html" class="btn" style="background:transparent;border:1px solid #ddd;color:#333;padding:0.6rem 1rem;border-radius:4px;text-decoration:none;">Back</a>
+				</div>
+			</form>
+
+			<p style="margin-top:1rem;font-size:0.95rem;color:#666;">Already registered? <a href="login.php">Log in here</a>.</p>
+		</div>
+	</main>
+
+	<footer style="margin-top:auto;">
+		<div class="container" style="padding:2rem 0;text-align:center;color:#777;">&copy; 2025 ITUM Event Management System</div>
+	</footer>
+
+	<script>
+		function validateRegistration() {
+			let isValid = true;
+			
+			// Clear previous errors
+			document.querySelectorAll('.error').forEach(el => el.textContent = '');
+			
+			// Name validation
+			const name = document.getElementById('name').value.trim();
+			if (name.length < 2) {
+				document.getElementById('nameError').textContent = 'Name must be at least 2 characters long';
+				isValid = false;
+			}
+			
+			// Email validation
+			const email = document.getElementById('email').value;
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(email)) {
+				document.getElementById('emailError').textContent = 'Please enter a valid email address';
+				isValid = false;
+			}
+			
+			// Password validation
+			const password = document.getElementById('password').value;
+			if (password.length < 6) {
+				document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long';
+				isValid = false;
+			}
+			
+			// Confirm password
+			const confirmPassword = document.getElementById('confirm_password').value;
+			if (password !== confirmPassword) {
+				document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+				isValid = false;
+			}
+			
+			return isValid;
+		}
+	</script>
+</body>
+</html>

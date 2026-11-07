@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Log In - ITUM Events</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.form-container { max-width:420px; margin:3rem auto; background:#fff;padding:1.75rem;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,0.06); }
+		label { display:block; margin-top:0.75rem; color:#444; }
+		input[type="email"], input[type="password"] { width:100%; padding:0.6rem; margin-top:0.4rem; border:1px solid #ddd; border-radius:4px; }
+		.form-actions { margin-top:1rem; display:flex; justify-content:space-between; align-items:center; gap:0.5rem; }
+	</style>
+</head>
+<body>
+	<nav class="navbar">
+		<div class="container">
+			<div class="logo"><img src="images/logo.jpeg" alt="ITUM" style="height:34px"><span class="logo-text">ITUM</span></div>
+		</div>
+	</nav>
+
+	<main>
+		<div class="container form-container">
+			<h2>Log In</h2>
+
+			<!-- show simple message if error passed -->
+			<?php if(isset($_GET['error'])): ?>
+				<div style="background:#ffe6e6;color:#900;padding:0.75rem;border-radius:6px;margin-bottom:0.75rem;"><?php echo htmlspecialchars($_GET['error']); ?></div>
+			<?php endif; ?>
+
+			<form action="login.php" method="post">
+				<input type="hidden" name="action" value="login">
+				<label for="email">Email</label>
+				<input id="email" name="email" type="email" required>
+
+				<label for="password">Password</label>
+				<input id="password" name="password" type="password" required>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">Log In</button>
+					<a href="auth.html" class="btn" style="background:transparent;border:1px solid #ddd;color:#333;padding:0.6rem 1rem;border-radius:4px;text-decoration:none;">Back</a>
+				</div>
+			</form>
+
+			<p style="margin-top:1rem;font-size:0.95rem;color:#666;">Don't have an account? <a href="register.html">Register here</a>.</p>
+		</div>
+	</main>
+
+	<footer style="margin-top:auto;">
+		<div class="container" style="padding:2rem 0;text-align:center;color:#777;">&copy; 2025 ITUM Event Management System</div>
+	</footer>
+</body>
+</html>

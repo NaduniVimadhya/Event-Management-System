@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# If this directory is served at domain root, remove RewriteBase or adjust.
+# RewriteBase /event_manager/
+
+# Route /register to register.php
+RewriteRule ^register/?$ register.php [L,QSA]
+
+# Optional: friendly login route
+RewriteRule ^login/?$ login.php [L,QSA]

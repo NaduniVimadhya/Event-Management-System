@@ -1,0 +1,74 @@
+/* Auth form styling — change vars to customize appearance */
+
+:root {
+    --auth-bg: #f7fafc;
+    --auth-card-bg: #ffffff;
+    --auth-border: #e6e9ee;
+    --auth-input-bg: #ffffff;
+    --auth-input-color: #222;
+    --auth-btn-bg: #007bff;
+    --auth-btn-color: #ffffff;
+    --auth-btn-radius: 8px;
+    --auth-spacing: 1rem;
+}
+
+/* Page layout */
+.auth-page {
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--auth-bg);
+    padding: 2rem 1rem;
+}
+
+/* Card */
+.auth-card {
+    background: var(--auth-card-bg);
+    border: 1px solid var(--auth-border);
+    border-radius: 10px;
+    padding: calc(var(--auth-spacing) * 1.25);
+    box-shadow: 0 8px 30px rgba(20, 20, 20, 0.06);
+    width: 100%;
+    max-width: 520px;
+}
+
+/* Container spacing */
+.auth-container { display:flex; flex-direction:column; gap:0.75rem; }
+
+/* Title */
+.auth-title { margin: 0 0 0.5rem 0; font-size: 1.5rem; color: #111; }
+
+/* Alerts */
+.auth-alert { padding: 0.6rem 0.75rem; border-radius:6px; font-size:0.95rem; }
+.auth-alert-error { background:#fff5f5; color:#a30000; border:1px solid #ffd6d6; }
+
+/* Form */
+.auth-form { display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem; }
+
+.auth-label { font-size:0.95rem; color:#444; margin-top:0.5rem; }
+.auth-input {
+    padding:0.75rem 0.9rem;
+    border:1px solid var(--auth-border);
+    border-radius:6px;
+    background: var(--auth-input-bg);
+    color: var(--auth-input-color);
+    font-size:1rem;
+    width:100%;
+}
+
+/* Buttons */
+.auth-actions { display:flex; gap:0.6rem; margin-top:0.75rem; align-items:center; }
+.auth-btn { padding:0.75rem 1.15rem; border-radius: var(--auth-btn-radius); border: none; cursor: pointer; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+.auth-btn-primary { background: var(--auth-btn-bg); color: var(--auth-btn-color); }
+.auth-btn-ghost { background: transparent; border:1px solid var(--auth-border); color:#333; }
+
+/* Footer note under form */
+.auth-foot { margin-top:0.75rem; color:#666; font-size:0.95rem; }
+
+/* Responsive */
+@media (max-width: 520px) {
+    .auth-card { padding:1rem; border-radius:8px; }
+    .auth-actions { flex-direction:column; }
+    .auth-btn { width:100%; }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Authenticate - ITUM Events</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.auth-wrapper { min-height: 70vh; display:flex; align-items:center; justify-content:center; }
+		.auth-card { background:#fff; padding:2rem; border-radius:8px; box-shadow:0 6px 24px rgba(0,0,0,0.08); text-align:center; }
+		.auth-actions { display:flex; gap:1rem; margin-top:1.25rem; justify-content:center; }
+		.auth-actions a.btn { padding:0.75rem 1.5rem; }
+	</style>
+</head>
+<body>
+	<nav class="navbar">
+		<div class="container">
+			<div class="logo">
+				<img src="images/logo.jpeg" alt="ITUM logo" style="height:34px">
+				<span class="logo-text">ITUM</span>
+			</div>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="events.php">Events</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main class="auth-wrapper">
+		<div class="auth-card container" style="max-width:520px;">
+			<h2>Welcome</h2>
+			<p>Please choose how you would like to continue</p>
+
+			<div class="auth-actions">
+				<a href="login.html" class="btn btn-primary">Log In</a>
+				<a href="register.html" class="btn">Register</a>
+			</div>
+
+			<p style="margin-top:1rem;color:#666;font-size:0.95rem;">Have an account? Click "Log In". New here? Click "Register".</p>
+		</div>
+	</main>
+
+	<footer style="margin-top:auto;">
+		<div class="container" style="padding:2rem 0;text-align:center;color:#777;">&copy; 2025 ITUM Event Management System</div>
+	</footer>
+</body>
+</html>
